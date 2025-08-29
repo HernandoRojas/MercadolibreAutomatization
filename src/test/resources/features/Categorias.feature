@@ -5,4 +5,5 @@ Feature: Navegación sobre las categorías
 
 Scenario: Conocer número de categorías
     Given El usuario navega a la página de mercado libre www.mercadolibre.com.co
-    Then encuentra la opción Categorías
+    When Da clic en la opción Categorías del navbar
+    Then Se listan 24 categorías

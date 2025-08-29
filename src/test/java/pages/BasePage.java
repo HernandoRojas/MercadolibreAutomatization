@@ -32,11 +32,12 @@ public class BasePage {
     }
 
     public static void navigateTo(String url){
-        //Se define el método para navegar/dirigirse a la url definida o enviada como parámetro
+        //Método para navegar/dirigirse a la url definida o enviada como parámetro
         driver.get(url);
     }
 
     private WebElement Find(String locator){
+        //Método para encontrar elemento web usando una espera explicita
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
 
@@ -57,24 +58,32 @@ public class BasePage {
     }
 
     public String obtenerTextoDeElementoWeb(String locator){
+        //Método para Obtener el atributo texto de un elemento web
         WebElement elementoWeb = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
         String textoDeElemento = elementoWeb.getText();
         return textoDeElemento;
     }
 
-    public void seleccionarDeListaPorValor(String locator,String valor){
+    public int obtenerTamanoDeListaUl(String locator){
+        //Método para obtener el tamaño de una lista de tipo ul con elementos li
+        WebElement ulElement = Find(locator);
+        java.util.List<WebElement> liElements = ulElement.findElements(By.tagName("li"));
+        return liElements.size();
+    }
+
+    public void seleccionarDeListaSelectPorValor(String locator,String valor){
         //Método para selecionar un elemento de una lista desplegable según su valor
         Select lista = new Select(Find(locator));
         lista.selectByValue(valor);
     }
 
-    public void seleccionarDeListaPorIndice(String locator,Integer indice){
+    public void seleccionarDeListaSelectPorIndice(String locator,Integer indice){
         //Método para selecionar un elemento de una lista desplegable según su índice
         Select lista = new Select(Find(locator));
         lista.selectByIndex(indice);
     }
 
-    public int tamanoLista(String locator){
+    public int tamanoListaSelect(String locator){
         //Metodo para obtener el tamaño de una lista desplegable
         Select lista = new Select(Find(locator));
 
@@ -83,7 +92,8 @@ public class BasePage {
         return listaOpciones.size();
     }
 
-    public List<String> obtenerValorDeLaLista(String locator){
+    public List<String> obtenerValorDeLaListaSelect(String locator){
+        //Método que obtiene y retorna los valores en texto que tiene cada elemento de la lista
         Select lista = new Select(Find(locator));
 
         List<WebElement> opcionesLista = lista.getOptions();

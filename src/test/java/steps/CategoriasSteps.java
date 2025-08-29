@@ -16,12 +16,17 @@ public class CategoriasSteps {
         paginaPrincipal.irAPaginaPrincipal();
     }
 
-    @Then("encuentra la opción Categorías")
-    public void validarNombre(){
-        String tituloEsperado = "Categorías";
-        String tituloElemento = paginaPrincipal.obtenerNombreCategoria();
+    @When("Da clic en la opción Categorías del navbar")
+    public void clickCategorias(){
+        paginaPrincipal.clickEnCategorias();
+        
+    }
 
-        Assert.assertEquals(tituloElemento, tituloEsperado);
+    @Then("Se listan 23 categorías")
+    public void validarNombre(){ 
+        int cantidadEsperada = 24;
+        int cantidadExistente = paginaPrincipal.longitudDeLaListaCategorias();
+        Assert.assertEquals(cantidadExistente, cantidadEsperada);
     }
 
 }
