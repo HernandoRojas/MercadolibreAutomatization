@@ -1,0 +1,36 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# Compiled class file
+*.class
+
+# Build directory
+/build/
+
+# Gradle-specific files
+/gradle/wrapper/gradle-wrapper.properties
+
+# IDE files (IntelliJ, Eclipse, VSCode)
+.idea/
+*.iml
+*.iws
+.classpath
+.project
+.settings/
+.vscode/
+
+# Log files
+*.log
+
+# Test reports and outputs
+/target/
+/test-output/
+/allure-results/
+/reports/
+/screenshots/
+
+# Local configuration files
+local.properties
