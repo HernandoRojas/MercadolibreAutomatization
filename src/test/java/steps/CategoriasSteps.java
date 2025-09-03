@@ -1,7 +1,7 @@
 package steps;
 
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
+//import org.testng.asserts.SoftAssert;
 
 import io.cucumber.java.en.*;
 import pages.PaginaPrincipal;
@@ -22,7 +22,7 @@ public class CategoriasSteps {
         
     }
 
-    @Then("Se listan 23 categorías")
+    @Then("Se listan 24 categorías")
     public void validarNombre(){ 
         int cantidadEsperada = 24;
         int cantidadExistente = paginaPrincipal.longitudDeLaListaCategorias();

@@ -3,6 +3,7 @@ Feature: Navegación sobre las categorías
     Sin estar logueado
     Puedo ir a una categoría de producto
 
+@SaberCategorias
 Scenario: Conocer número de categorías
     Given El usuario navega a la página de mercado libre www.mercadolibre.com.co
     When Da clic en la opción Categorías del navbar

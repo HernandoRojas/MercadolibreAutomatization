@@ -1,14 +1,15 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.By;
+//import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PaginaPrincipal extends BasePage{
     
     private String localizadorLabelCategorias = "//a[normalize-space()='Categorías' and @href]";
     private String localizadorListaCategorias = "/html/body/header/div/div[5]/div/ul/li[1]/div/ul";
     private String urlPaginaPrincipal = "https://www.mercadolibre.com.co";
+    private String localizadorCategoriaDeportes = "//a[normalize-space()='Deportes y Fitness']";
 
     public PaginaPrincipal(){
         super(driver);
@@ -32,6 +33,10 @@ public class PaginaPrincipal extends BasePage{
     //Método para obtener la longitud de la lista de categorias que en este caso es un elemento ul, usa el método obtenerTamanoDeListaUl de la clase BasePage usando como parámetro el localizador de la lista ul
     public int longitudDeLaListaCategorias(){
         return obtenerTamanoDeListaUl(localizadorListaCategorias);
+    }
+
+    public void clicCategoriaDeportes(){
+        clickElementClickable(localizadorLabelCategorias,localizadorCategoriaDeportes);
     }
 
 }
