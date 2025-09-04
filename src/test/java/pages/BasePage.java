@@ -56,6 +56,7 @@ public class BasePage {
     }
 
     public void clickElementClickable(String locator1,String locator2){
+        //Método para dar clic al elemento web luego de validar si es clickeable el mismo, se pasa el localizador del elemento 1 (del cual se depende) y del elemento 2
         isClickable(locator1,locator2).click();
     }
 

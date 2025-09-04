@@ -35,6 +35,7 @@ public class PaginaPrincipal extends BasePage{
         return obtenerTamanoDeListaUl(localizadorListaCategorias);
     }
 
+    //Método para clickear una opción luego que se habilite el clic, donde previamente se mueve el cursor sobre el elemento 1 (label categorias)
     public void clicCategoriaDeportes(){
         clickElementClickable(localizadorLabelCategorias,localizadorCategoriaDeportes);
     }
