@@ -97,5 +97,5 @@ public class AgregarProductoSteps {
         Assert.assertEquals(tituloExistente, tituloEsperado);
     }
 
-    //Escenario número 2, Agregar producto al carrito iniciando sesión:
+    //Escenario número 3, Agregar producto al carrito iniciando sesión:
 }

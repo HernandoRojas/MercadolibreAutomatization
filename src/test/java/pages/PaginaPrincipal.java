@@ -10,6 +10,8 @@ public class PaginaPrincipal extends BasePage{
     private String localizadorListaCategorias = "/html/body/header/div/div[5]/div/ul/li[1]/div/ul";
     private String urlPaginaPrincipal = "https://www.mercadolibre.com.co";
     private String localizadorCategoriaDeportes = "//a[normalize-space()='Deportes y Fitness']";
+    private String localizadorBarraBusqueda = "//input[@id='cb1-edit']";
+    private String localizadorBotonBusqueda = "//button[@class='nav-search-btn']";
 
     public PaginaPrincipal(){
         super(driver);
@@ -40,4 +42,11 @@ public class PaginaPrincipal extends BasePage{
         clickElementClickable(localizadorLabelCategorias,localizadorCategoriaDeportes);
     }
 
+    public void escribirEnBarraDeBusqueda(String texto){
+        escribir(localizadorBarraBusqueda, texto);
+    }
+
+    public void clicBotonBarraDeBusqueda(){
+        clickElement(localizadorBotonBusqueda);
+    }
 }
