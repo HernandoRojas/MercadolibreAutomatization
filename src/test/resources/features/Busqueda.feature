@@ -20,3 +20,9 @@ Scenario Outline: Buscar distintos productos en la barra de búsqueda
         | "Computador Gamer" |
         | "Iphone 13"  |
         | "PlayStation" |
+
+@BuscarArticuloEspecifico
+Scenario: Buscar Artículo especifico
+    When busque el articulo Mancuerna
+    And seleccione el segundo elemento
+    Then el articulo tiene por nombre "Kit 2 Mancuernas Magnux 21kgestuche 20 Kg Con Estuche Para Ejercicio Color Negro"

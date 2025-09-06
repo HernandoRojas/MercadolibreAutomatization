@@ -2,10 +2,7 @@ package steps;
 
 import org.testng.Assert;
 
-//import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import pages.PaginaArticulo;
 import pages.PaginaPrincipal;
 import pages.PaginaResultadosBusqueda;
@@ -53,4 +50,25 @@ public class BusquedaSteps {
         String tituloEsperado = titulo;
         Assert.assertEquals(tituloExistente,tituloEsperado);
     }
+
+    // Steps para escenario número 2 @BuscarArticuloEspecifico
+
+    @When("busque el articulo {word}")
+    public void buscarArticuloMancuerna(String palabra){
+        paginaPrincipal.escribirEnBarraDeBusqueda(palabra);
+        paginaPrincipal.clicBotonBarraDeBusqueda();
+    }
+
+    @And("seleccione el segundo elemento")
+    public void verSegundoElemento(){
+        paginaResultados.clicSegundoElemento();
+    }
+
+    @Then("el articulo tiene por nombre {string}")
+    public void validarArticulo(String articulo){
+        String tituloEsperado = articulo;
+        String tituloExistente = paginaArticulo.obtenerTituloArticulo();
+        Assert.assertEquals(tituloExistente, tituloEsperado);
+    }
+
 }
