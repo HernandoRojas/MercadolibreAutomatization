@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,6 +19,7 @@ public class BasePage {
     
     protected static WebDriver driver; //Se crea la variable driver de tipo WebDriver, esta variable va a ser utilizada por todas las instancias de BasePage y sus subclases
     WebDriverWait wait = new WebDriverWait( driver, Duration.ofSeconds(5)); //Se define la variable de espera con el valor de 5 segundos
+    Actions actions = new Actions(driver);
 
     static { 
         //Se instancia el WebDriverManager, es decir, aquí se instancia lo que nos ayudará a manejar el navegador web Chrome
@@ -44,6 +46,18 @@ public class BasePage {
     public void clickElement(String locator){
         //Método para dar clic a un elemento enviando como parámetro el localizador
         Find(locator).click();
+    }
+
+    public WebElement isClickable(String locator1,String locator2){
+        //Método para mover el cursor sobre un WebElement y permitir que un segundo WebElement sea clickeable
+        WebElement element1 = Find(locator1);
+        actions.moveToElement(element1).perform();
+        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator2)));
+    }
+
+    public void clickElementClickable(String locator1,String locator2){
+        //Método para dar clic al elemento web luego de validar si es clickeable el mismo, se pasa el localizador del elemento 1 (del cual se depende) y del elemento 2
+        isClickable(locator1,locator2).click();
     }
 
     public static void cerrarNavegador(){
