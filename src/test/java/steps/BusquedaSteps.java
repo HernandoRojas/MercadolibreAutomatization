@@ -36,4 +36,21 @@ public class BusquedaSteps {
         String tituloEsperado = titulo;
         Assert.assertEquals(tituloExistente,tituloEsperado);
     }
+
+    // Steps para escenario número 2 @BuscarArticulos
+
+    @When("busque {string} en el campo de busqueda")
+    public void buscarArticulos(String textoParaBusqueda){
+        //Busca el artículo por palabra clave ingresando la palabra en el campo de texto de busqueda
+        paginaPrincipal.escribirEnBarraDeBusqueda(textoParaBusqueda);
+        paginaPrincipal.clicBotonBarraDeBusqueda();
+    }
+
+    @Then("el sistema muestra resultados para cada {string}")
+    public void validarBusquedaArticulos(String titulo){
+        //Se valida que el articulo seleccionado tenga por título el esperado
+        String tituloExistente = paginaResultados.obtenerTituloResultado();
+        String tituloEsperado = titulo;
+        Assert.assertEquals(tituloExistente,tituloEsperado);
+    }
 }

@@ -3,8 +3,20 @@ Feature: Navegación con búsqueda
     Sin necesidad de estar logueado
     Puedo buscar articulos ingresando el nombre o palabra clave
 
+    Background: Navego a la pagina principal mercadolibre
+    Given El usuario navega a la pagina www.mercadolibre.com.co
+
 @BuscarArticulo
 Scenario: Buscar artículo por palabra clave
-    Given El usuario navega a la pagina www.mercadolibre.com.co
     When busca la palabra Mancuerna
     Then Se listan articulos con la palabra clave Mancuerna
+
+@BuscarArticulos
+Scenario Outline: Buscar distintos productos en la barra de búsqueda
+    When busque <producto> en el campo de busqueda
+    Then el sistema muestra resultados para cada <producto>
+    Examples:
+        | producto |
+        | "Computador Gamer" |
+        | "Iphone 13"  |
+        | "PlayStation" |
