@@ -5,10 +5,11 @@ package pages;
 //import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PaginaPrincipal extends BasePage{
-    
+
+    ConfigReader configReader = new ConfigReader();
     private String localizadorLabelCategorias = "//a[normalize-space()='Categorías' and @href]";
     private String localizadorListaCategorias = "/html/body/header/div/div[5]/div/ul/li[1]/div/ul";
-    private String urlPaginaPrincipal = "https://www.mercadolibre.com.co";
+    //private String urlPaginaPrincipal = "https://www.mercadolibre.com.co";
     private String localizadorCategoriaDeportes = "//a[normalize-space()='Deportes y Fitness']";
     private String localizadorBarraBusqueda = "//input[@id='cb1-edit']";
     private String localizadorBotonBusqueda = "//button[@class='nav-search-btn']";
@@ -19,7 +20,7 @@ public class PaginaPrincipal extends BasePage{
 
     //Método para navegar a la página principal de mercado libre, usa el metodo NavigateTo de la clase BasePage
     public void irAPaginaPrincipal(){ 
-        navigateTo(urlPaginaPrincipal);
+        navigateTo(configReader.getBaseUrl());
     }  
 
     // Método para obtener el texto del elemento web, en este caso para categorías, usa el metodo ObtenertextoDeElementoWeb de la clase BasePage el cual extrae el texto que tiene un elemento web usando como parámetro el localizador

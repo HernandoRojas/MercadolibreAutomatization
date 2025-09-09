@@ -3,6 +3,7 @@ package steps;
 import org.testng.Assert;
 
 import io.cucumber.java.en.*;
+import pages.ConfigReader;
 import pages.PaginaArticulo;
 import pages.PaginaPrincipal;
 import pages.PaginaResultadosBusqueda;
@@ -12,6 +13,7 @@ public class BusquedaSteps {
     PaginaPrincipal paginaPrincipal = new PaginaPrincipal();
     PaginaResultadosBusqueda paginaResultados = new PaginaResultadosBusqueda();
     PaginaArticulo paginaArticulo = new PaginaArticulo();
+    ConfigReader configReader = new ConfigReader();
     
     @Given("El usuario navega a la pagina www.mercadolibre.com.co")
     public void irAUrlPaginaPrincipal(){  
