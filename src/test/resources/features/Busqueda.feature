@@ -17,9 +17,9 @@ Scenario Outline: Buscar distintos productos en la barra de búsqueda
     Then el sistema muestra resultados para cada <producto>
     Examples:
         | producto |
-        | "Computador Gamer" |
+        | "Computador gamer" |
         | "Iphone 13"  |
-        | "PlayStation" |
+        | "Playstation" |
 
 @BuscarArticuloEspecifico
 Scenario: Buscar Artículo especifico

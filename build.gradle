@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'io.qameta.allure' version '2.11.0' //Versión del plugin de Allure
 }
 
 repositories {
@@ -16,24 +17,32 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
 
+    //Selenium WebDriver
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     implementation 'org.seleniumhq.selenium:selenium-java:4.34.0'
 
+    //ChromeDriver
     // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
     implementation 'io.github.bonigarcia:webdrivermanager:6.2.0'
 
+    // TestNG
     // https://mvnrepository.com/artifact/org.testng/testng
     testImplementation 'org.testng:testng:7.11.0'   
 
+    // Cucumber
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
     implementation 'io.cucumber:cucumber-java:7.27.0'
-
+    
+    // Cucumber JUnit
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
     testImplementation 'io.cucumber:cucumber-junit:7.27.0'
 
+    // Dependencia de Allure para Cucumber
+    testImplementation 'io.qameta.allure:allure-cucumber7-jvm:2.27.0'
+    
+    // Dependencia de Allure para TestNG
+    testImplementation 'io.qameta.allure:allure-testng:2.27.0'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -45,6 +54,16 @@ java {
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
+    useJUnit()
     systemProperty "cucumber.options", System.getProperty("cucumber.options")
     systemProperties System.getProperties();
+    include '**/TestRunner.class'
+    exclude '**/pages/**'
+    exclude '**/steps/**'
+}
+
+allure {
+    report {
+        version = '2.27.0' // Versión del reporte de Allure
+    }
 }

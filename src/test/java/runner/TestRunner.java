@@ -8,7 +8,7 @@ import pages.BasePage;
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/resources/features", //Directorio de archivos .features
     glue = "steps", //Directorio donde están las clases dfiniendo los steps escritos en el feature file
-    plugin = {"pretty","html:target/cucumber-reports"}, tags = "@SaberCategorias")
+    plugin = {"pretty","html:target/cucumber-reports", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}, tags = "@SaberCategorias")
 
 //Comando para correr el tag deseado: gradle test -D  "cucumber.filter.tags=@Tag"
 
