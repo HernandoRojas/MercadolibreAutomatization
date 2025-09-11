@@ -10,9 +10,6 @@ build
 # Build directory
 /build/
 
-# Gradle-specific files
-/gradle/wrapper/gradle-wrapper.properties
-
 # IDE files (IntelliJ, Eclipse, VSCode)
 .idea/
 *.iml
